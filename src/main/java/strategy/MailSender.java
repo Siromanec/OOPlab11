@@ -10,6 +10,8 @@ import com.mailjet.client.resource.Emailv31;
 import org.json.JSONArray;
 import org.json.JSONObject;
 public class MailSender {
+    private static final String API_KEY = "";
+    private static final String API_SECRET = "";
     public static void main(String[] args) throws MailjetException, MailjetSocketTimeoutException {
         MailCode mailCode = new GiftMail();
         Client client = new Client("serhii", "serhii.ivanov@ucu.edu.ua");
@@ -17,7 +19,7 @@ public class MailSender {
         MailjetClient mailjetClient;
         MailjetRequest request;
         MailjetResponse response;
-        mailjetClient = new MailjetClient("a5fec164a339368c19100d1c145aea34", "f646a32f2080171850d9894bb704da44", new ClientOptions("v3.1"));
+        mailjetClient = new MailjetClient(API_KEY, API_SECRET, new ClientOptions("v3.1"));
         request = new MailjetRequest(Emailv31.resource)
                 .property(Emailv31.MESSAGES, new JSONArray()
                         .put(new JSONObject()
